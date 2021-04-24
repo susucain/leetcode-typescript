@@ -34,7 +34,7 @@ class LRUCache {
             const node = new LinkedNode({ key, value });
             this.addToHead(node);
             this.hashMap[key] = node;
-            if (Object.keys(this.hashMap).length > 2) {
+            if (Object.keys(this.hashMap).length > this.capacity) {
                 const deletedNode = this.tail.prev;
                 delete this.hashMap[deletedNode.val.key];
                 this.removeNode(deletedNode);
@@ -69,13 +69,10 @@ class LRUCache {
  * var param_1 = obj.get(key)
  * obj.put(key,value)
  */
-const cache = new LRUCache(2);
-cache.put(1, 1);
-cache.get(1); // 返回  1
-cache.put(3, 3); // 该操作会使得密钥 2 作废
-cache.get(2); // 返回 -1 (未找到)
-cache.put(4, 4); // 该操作会使得密钥 1 作废
-cache.get(1); // 返回 -1 (未找到)
-cache.get(3); // 返回  3
-cache.get(4); // 返回  4
+const cache = new LRUCache(1);
+cache.put(2, 1);
+cache.get(2); // 1
+cache.put(3, 2);
+cache.get(2); // -1
+cache.get(3); // 2
 //# sourceMappingURL=test.js.map
