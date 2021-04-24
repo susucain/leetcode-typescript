@@ -1,4 +1,4 @@
-## leetcode-typescript
+# leetcode-typescript
 
 leetcode的刷题记录
 
