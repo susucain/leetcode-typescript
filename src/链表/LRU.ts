@@ -91,7 +91,7 @@ class LRUCache {
 
 const cache = new LRUCache(1)
 cache.put(2, 1)
-cache.get(2) // 1
+console.log(cache.get(2)) // 1
 cache.put(3, 2)
-cache.get(2) // -1
-cache.get(3) // 2
+console.log(cache.get(2)) // -1
+console.log(cache.get(3)) // 2

@@ -5,16 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Program",
-      "type": "node",
-      "request": "launch",
+      "command": "ts-node ${file}",
       "cwd": "${workspaceRoot}",
-      "program": "${file}",
-      "outFiles": [
-        "${workspaceRoot}/dist/${fileBasenameNoExtension}.js"
-      ],
-      "sourceMaps": true,
+      "name": "Run current file",
+      "request": "launch",
+      "type": "node-terminal",
       "console" : "integratedTerminal"
-    }
+    },
   ]
 }
