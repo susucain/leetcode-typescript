@@ -1,6 +1,10 @@
 /**
  * https://leetcode-cn.com/problems/lru-cache-lcci/
  * @name LRU缓存
+ * 数据获取的数据结构实现使用HashMap，维护LRU（最近最少使用）的数据结构使用双向链表实现，越靠近表头越是近期使用的
+ * 数据。每次获取数据时从hasMap中拿到数据返回，并把该数据节点移到链表头；写入数据时，如该键值已存在，则只更改value值
+ * 并将节点移到表头；如该健值不存在，则判断容量是否超出，如超出先删除尾节点；如未超出则创建节点，写入hasMap并将该节点放到表头。
+ * 注意使用双向链表，插入删除比较方便，头尾使用空节点占位可以少很多判空的条件
  */
 
 interface IVal {
@@ -18,7 +22,7 @@ class LinkedNode {
   }
 }
 
-class LRUCache {
+export class LRUCache {
   capacity: number
   hashMap: Record<number, LinkedNode>
   head: LinkedNode
