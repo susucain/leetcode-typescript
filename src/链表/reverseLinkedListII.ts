@@ -45,3 +45,37 @@ function reverseBetween(head: ListNode | null, left: number, right: number): Lis
 
 const reverseHead1 = reverseBetween(createList([1, 2, 3, 4, 5]), 2, 4)
 printListNode(reverseHead1)
+
+/**
+ * 头插法
+ * 基本思路：在需要反转的区间里，每遍历到一个节点，让这个新节点来到反转部分的起始位置
+ * ...=>1=>2=>3=>...
+ * ...=>2=>1=>3=>...
+ * ...=>3=>2=>1=>...
+ */
+function reverseBetween2(head: ListNode | null, left: number, right: number): ListNode | null {
+  const dummyHeadNode = new ListNode(-1, head)
+
+  // 得到left节点的前一个节点
+  let preLeftNode = dummyHeadNode
+  for (let i = 0; i < left - 1; i++) {
+    preLeftNode = preLeftNode.next!
+  }
+
+  // 从left节点开始遍历，遍历到当前节点是right节点为止
+  const curr = preLeftNode.next!
+  for (let i = 0; i < right - left; i++) {
+    // curr节点移到其下一个节点的位置
+    const nextNode = curr.next!
+    curr.next = nextNode!.next
+
+    // 当前节点的下一个节点移到left节点的位置
+    nextNode.next = preLeftNode.next
+    preLeftNode.next = nextNode
+  }
+
+  return dummyHeadNode.next
+}
+
+const reverseHead2 = reverseBetween2(createList([1, 2, 3, 4, 5]), 2, 4)
+printListNode(reverseHead2)
