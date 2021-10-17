@@ -2,7 +2,7 @@
  * https://leetcode-cn.com/problems/reverse-linked-list/
  * @name 反转链表
  */
-class ListNode {
+export class ListNode {
   val: number
   next: ListNode | null
   constructor(val?: number, next?: ListNode | null) {
@@ -11,7 +11,7 @@ class ListNode {
   }
 }
 
-function createList(arr) {
+export function createList(arr) {
   const head = new ListNode(arr[0])
   let node = head
 
@@ -23,7 +23,7 @@ function createList(arr) {
   return head
 }
 
-function printListNode(head: ListNode | null) {
+export function printListNode(head: ListNode | null) {
   let curr = head
   const arr: number[] = []
   while (curr) {
@@ -50,6 +50,8 @@ export function reverseList(head: ListNode | null): ListNode | null {
     prev = curr
     curr = next
   }
+
+  // 返回反转链表后的头节点
   return prev
 }
 
