@@ -3,7 +3,7 @@
  * @name 合并两个有序链表
  */
 
-import { createList, ListNode, printListNode } from './reverseLinkedList'
+import { createList, ListNode, printListNode } from './util'
 
 /**
  * 基本思路：双指针p1，p2，分别指向两个链表的头节点

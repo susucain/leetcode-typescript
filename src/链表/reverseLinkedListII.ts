@@ -2,7 +2,8 @@
  * https://leetcode-cn.com/problems/reverse-linked-list-ii/
  * @name 反转链表2
  */
-import { createList, ListNode, printListNode, reverseList } from './reverseLinkedList'
+import { reverseList } from './reverseLinkedList'
+import { createList, ListNode, printListNode } from './util'
 
 /**
  * 基本思路：记下leftNode的前一个节点和rightNode的后一个节点，然后断开连接，单独反转leftNode-rightNode部分
