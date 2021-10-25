@@ -1,6 +1,6 @@
 /**
  * https://leetcode-cn.com/problems/valid-palindrome/
- * @name 验证回问字符串
+ * @name 验证回文字符串
  * 双指针法，左右指针依次移动判断字符是否相同，如相同则继续；不相同则直接返回false。遍历完后表明是回文字符串，返回true。
  * 注意忽略非字母数字的字符
  */
