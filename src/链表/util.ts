@@ -28,3 +28,22 @@ export function printListNode(head: ListNode | null) {
   }
   console.log(arr)
 }
+
+export function setCycle(head: ListNode, pos: number) {
+  let posNode: ListNode | null = null
+  let current = head
+
+  for (let i = 0; i < pos; i++) {
+    current = current.next!
+  }
+
+  posNode = current
+
+  while (current.next) {
+    current = current.next
+  }
+
+  current.next = posNode
+
+  return head
+}
