@@ -29,6 +29,7 @@ export function printListNode(head: ListNode | null) {
   console.log(arr)
 }
 
+// 设置链表环，让链表尾节点指向pos位置的节点
 export function setCycle(head: ListNode, pos: number) {
   let posNode: ListNode | null = null
   let current = head
@@ -46,4 +47,15 @@ export function setCycle(head: ListNode, pos: number) {
   current.next = posNode
 
   return head
+}
+
+// 返回链表pos位置处的节点
+export function getNodeByPos(head: ListNode, pos: number) {
+  let current = head
+
+  for (let i = 0; i < pos; i++) {
+    current = current.next!
+  }
+
+  return current
 }

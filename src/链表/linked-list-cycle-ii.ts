@@ -11,6 +11,7 @@ import { createList, ListNode, setCycle } from './util'
  * 如遍历到的节点已经存在于hasMap，则该节点为入环的第一个节点。此方法空间时间复杂度均为O(N)
  *
  * 思路2: 利用快慢指针相遇位置到入环点的距离 * n-1圈长 = 头节点到入环点的距离
+ * 官方解释比较清晰：https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/huan-xing-lian-biao-ii-by-leetcode-solution/
  * @param head 链表头节点
  * @returns 返回链表开始入环的第一个节点，如非环形链表返回null
  */
