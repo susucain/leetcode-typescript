@@ -1,6 +1,6 @@
 /**
  * https://leetcode-cn.com/problems/reverse-linked-list-ii/
- * @name 反转链表2
+ * @name 反转从位置left到位置right的链表节点
  */
 import { reverseList } from './reverseLinkedList'
 import { createList, ListNode, printListNode } from './util'
@@ -80,3 +80,28 @@ function reverseBetween2(head: ListNode | null, left: number, right: number): Li
 
 const reverseHead2 = reverseBetween2(createList([1, 2, 3, 4, 5]), 2, 4)
 printListNode(reverseHead2)
+
+let successor: ListNode | null = null // 后驱节点
+/**
+ * 反转以 head 为起点的 n 个节点，返回新的头结点
+ * @param head 链表头节点
+ * @param n 链表个数
+ * @returns 新链表的头节点
+ */
+function reverseN(head: ListNode | null, n: number) {
+  if (n == 1) {
+    // 记录第 n + 1 个节点
+    successor = head!.next
+    return head // 返回第N个节点，也是需要反转这段链表的尾节点
+  }
+  // 以 head.next 为起点，需要反转前 n - 1 个节点
+  const last = reverseN(head!.next, n - 1)
+
+  head!.next!.next = head
+  // 让反转之后的 head 节点和后面的节点连起来
+  head!.next = successor
+  return last
+}
+
+const reverseHead3 = reverseN(createList([1, 2, 3, 4, 5]), 3)
+printListNode(reverseHead3)

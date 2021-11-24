@@ -44,13 +44,13 @@ const reverseListByRecursion = function (head) {
   if (head == null || head.next == null) {
     return head
   }
-  // 递阶段执行到最后一个节点，newHead为尾节点
-  const newHead = reverseListByRecursion(head.next)
+  // 递阶段执行到最后一个节点，last为尾节点
+  const last = reverseListByRecursion(head.next)
 
-  // 归阶段执行代码
+  // 归阶段执行代码，第一次归阶段执行到这里时，head为倒数第二个节点
   head.next.next = head
   head.next = null
-  return newHead
+  return last
 }
 
 const reverseHead2 = reverseListByRecursion(createList([1, 2, 3, 4]))
