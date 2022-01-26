@@ -4,6 +4,7 @@
   "description": "blog",
   "main": "lib/index.js",
   "scripts": {
+    "run-code": "ts-node",
     "dev": "tsc --outDir dist --watch",
     "build": "tsc --outDir dist",
     "lint": "eslint --ext .ts,.tsx src",

@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "ts-node ${file}",
+      "command": "yarn run-code ${file}",
       "cwd": "${workspaceRoot}",
       "name": "Run current file",
       "request": "launch",

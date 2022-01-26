@@ -29,6 +29,22 @@ export function printListNode(head: ListNode | null) {
   console.log(arr)
 }
 
+// 递归倒序打印链表
+export function printListNodeReverse(head: ListNode | null) {
+  const arr: number[] = []
+
+  const traverseListNode = (curr: ListNode | null) => {
+    if (curr) {
+      traverseListNode(curr.next)
+      arr.push(curr.val)
+    }
+  }
+
+  traverseListNode(head)
+
+  console.log(arr)
+}
+
 // 设置链表环，让链表尾节点指向pos位置的节点
 export function setCycle(head: ListNode, pos: number) {
   let posNode: ListNode | null = null
